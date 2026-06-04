@@ -83,6 +83,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "AI-narrated tales from the Ramayana, Mahabharata, and Puranas." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Kathāsāgara — Indian Mythology, Retold" },
+      { name: "twitter:description", content: "AI-narrated tales from the Ramayana, Mahabharata, and Puranas." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/c9f2bb45-fd26-4cbf-93e3-57f96da590fd" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/c9f2bb45-fd26-4cbf-93e3-57f96da590fd" },
     ],
     links: [
       {

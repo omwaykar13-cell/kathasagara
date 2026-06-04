@@ -5,6 +5,7 @@ import { useState } from "react";
 import { generateStory } from "@/lib/api/story.functions";
 import { StoryDisplay } from "@/components/StoryDisplay";
 import heroImage from "@/assets/hero-myth.jpg";
+import { DictionaryButton } from "@/components/DictionaryDialog";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -183,6 +184,8 @@ function Index() {
           ॥ सत्यमेव जयते ॥ &nbsp;·&nbsp; Stories drawn from the eternal traditions of Bhārata
         </p>
       </footer>
+
+      <DictionaryButton />
 
       {/* Creator Badge */}
       <div className="fixed bottom-4 right-4 z-50">

@@ -183,6 +183,21 @@ function Index() {
           ॥ सत्यमेव जयते ॥ &nbsp;·&nbsp; Stories drawn from the eternal traditions of Bhārata
         </p>
       </footer>
+
+      {/* Creator Badge */}
+      <div className="fixed bottom-4 right-4 z-50">
+        <div className="relative group">
+          <div className="absolute -inset-1 bg-gradient-to-r from-saffron via-gold to-vermilion rounded-full opacity-75 group-hover:opacity-100 blur-sm transition duration-500" />
+          <div className="relative px-5 py-2.5 bg-card border border-primary/30 rounded-full shadow-[0_0_30px_-5px_oklch(0.6_0.18_45/0.4)] backdrop-blur-sm">
+            <span className="font-deva text-primary/90 text-xs tracking-wider block text-center leading-tight">
+              रचना
+            </span>
+            <span className="font-display text-foreground text-sm font-semibold tracking-wide">
+              Created by Om Waykar
+            </span>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }

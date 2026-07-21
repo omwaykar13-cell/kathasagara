@@ -30,8 +30,6 @@ The project combines elegant UI design, warm traditional aesthetics, and interac
 
 ## 🖼️ Preview
 
-Add your website screenshot here:
-
 ```md
 https://github.com/omwaykar13-cell/kathasagara/commit/2c3e0f0dbaa2502823dbb5f6a6c8e4615d5f94db
 ```

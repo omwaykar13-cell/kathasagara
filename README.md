@@ -80,11 +80,14 @@ This project is built to:
 
 ---
 
-## 👤 Author
+## 👨‍💻 Developer
 
-**Om Waykar**  
+Developed by **Omwaykar**
 Aspiring AI/ML developer and web builder from Maharashtra, India.
 
+GitHub: https://github.com/omwaykar13-cell
+
+Website link: https://kathasagara.lovable.app/
 ---
 
 ## 📄 License

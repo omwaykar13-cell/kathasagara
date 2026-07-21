@@ -36,8 +36,6 @@ Add your website screenshot here:
 https://github.com/omwaykar13-cell/kathasagara/commit/2c3e0f0dbaa2502823dbb5f6a6c8e4615d5f94db
 ```
 
-If you want to use the screenshot from this chat, upload it to your repo and replace the path accordingly.
-
 ---
 
 ## 🛠️ Tech Stack

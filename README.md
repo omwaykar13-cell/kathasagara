@@ -152,25 +152,28 @@ Deployment
 
 ## 🏠 Home
 
-![Home](./screenshots/home.png)
+<img width="1905" height="1079" alt="image" src="https://github.com/user-attachments/assets/a07d6502-5f61-49f7-95e5-e9c7337784f2" />
+
 
 ---
 
 ## 📖 Story Reader
 
-![Story](./screenshots/story.png)
+<img width="1853" height="1079" alt="image" src="https://github.com/user-attachments/assets/906aad51-e967-4e88-87e3-ef3d8fafc91e" />
 
 ---
 
 ## 📜 Sanskrit Verse & Teaching
 
-![Verse](./screenshots/verse.png)
+<img width="1843" height="885" alt="image" src="https://github.com/user-attachments/assets/3018c955-8408-4da8-80c1-3fe599a2738a" />
+
 
 ---
 
 ## 📚 Dictionary
 
-![Dictionary](./screenshots/dictionary.png)
+<img width="1856" height="1079" alt="image" src="https://github.com/user-attachments/assets/524bf6c0-5d89-496d-8315-e3faa4340cd6" />
+
 
 ---
 

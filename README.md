@@ -1,92 +1,219 @@
-# Kathāsāgara
+<div align="center">
 
-**The ocean of stories.**  
-A beautifully designed story-exploration website inspired by the Vedas, epics, and Puranas — presented through different lenses like child-friendly, scholarly, modern, seeker-focused, and cinematic narration.
+# 📜 Kathāsāgara
 
----
+### *The Ocean of Stories*
 
-## ✨ About the Project
+AI-powered storytelling inspired by the Vedas, Upanishads, Ramayana, Mahabharata and Puranas.
 
-**Kathāsāgara** is a mythology and storytelling web experience that lets users explore timeless Indian stories in a visually rich and immersive interface.  
-The project combines elegant UI design, warm traditional aesthetics, and interactive storytelling to make ancient narratives feel alive and accessible.
+Generate immersive stories from India's timeless wisdom through multiple storytelling perspectives.
 
 ---
 
-## 🌟 Features
+![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
+![AI](https://img.shields.io/badge/AI-Powered-orange?style=for-the-badge)
+![React](https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge)
 
-- Search for a topic, character, or moment.
-- Choose different storytelling lenses:
-  - For a Child
-  - For a Scholar
-  - For Today
-  - For the Seeker
-  - As Cinema
-- Immersive theme inspired by Indian mythology and temple aesthetics.
-- Elegant gradient buttons and glowing highlights.
-- Story prompts and quick-access suggested topics.
-- Dictionary feature for Sanskrit or story-related words.
+</div>
 
 ---
 
-## 🖼️ Preview
+# 🌊 About
 
-```md
-https://github.com/omwaykar13-cell/kathasagara/commit/2c3e0f0dbaa2502823dbb5f6a6c8e4615d5f94db
-```
+Kathāsāgara is an AI-powered storytelling platform that transforms the timeless wisdom of Indian scriptures into immersive narratives.
 
----
+Rather than simply displaying historical events, the application allows users to explore stories through different perspectives—from a child's imagination to scholarly interpretations, spiritual teachings, cinematic storytelling, and modern-day parallels.
 
-## 🛠️ Tech Stack
-
-- **Frontend:** React / HTML / CSS / JavaScript
-- **Styling:** Custom CSS, gradients, glassmorphism-inspired UI
-- **Design:** Responsive layout with cinematic storytelling visuals
-- **Optional Backend:** Node.js / API integration for story generation
+Each story is beautifully formatted, includes relevant Sanskrit verses, moral teachings, and even a built-in trilingual dictionary for deeper understanding.
 
 ---
 
-## 📌 UI Highlights
+# ✨ Features
 
-- Dark, temple-inspired visual theme
-- Decorative lotus and peacock-feather elements
-- Centered hero section with strong typography
-- Lens-based storytelling cards
-- Large CTA for generating stories
-- Bottom quick-topic suggestions for fast access
+## 📚 AI Story Generation
 
----
+Generate stories from:
 
-## 🎯 Purpose
+- Mahabharata
+- Ramayana
+- Bhagavad Gita
+- Vedas
+- Upanishads
+- Puranas
+- Indian Mythology
 
-This project is built to:
-- Make Indian mythology more accessible.
-- Present stories in multiple interpretive styles.
-- Create an emotionally engaging and visually memorable reading experience.
-- Blend tradition with modern web design.
+Simply enter a character, event, place, or question.
 
 ---
 
-## 💡 Future Improvements
+## 🎭 Storytelling Lenses
 
-- Voice-based narration.
-- Multi-language support.
-- Personalized story recommendations.
-- Bookmarking favorite stories.
-- AI-powered story expansion and explanation.
+Every story can be generated in multiple styles.
+
+### 👦 For a Child
+
+Simple language with imagination.
+
+### 🎓 For a Scholar
+
+Traditional sources and deeper references.
+
+### 🌍 For Today
+
+Modern life lessons and practical parallels.
+
+### 🧘 For the Seeker
+
+Spiritual and philosophical interpretation.
+
+### 🎬 As Cinema
+
+Epic, dramatic and visually descriptive storytelling.
 
 ---
 
-## 👨‍💻 Developer
+## 📖 Beautiful Reading Experience
 
-Developed by **Omwaykar**
-Aspiring AI/ML developer and web builder from Maharashtra, India.
+Every generated story includes:
 
-GitHub: https://github.com/omwaykar13-cell
-
-Website link: https://kathasagara.lovable.app/
+- Elegant typography
+- Chapter headings
+- Smooth reading layout
+- Sanskrit verses
+- English explanation
+- Moral teachings
 
 ---
 
-## 📄 License
+## 📜 Sanskrit Integration
 
-This project is open-source and available under the MIT License.
+Stories include authentic Sanskrit shlokas together with their meanings and context.
+
+---
+
+## 📚 Trilingual Dictionary
+
+Built-in dictionary supporting:
+
+- 🇬🇧 English
+- 🇮🇳 Hindi
+- 🇮🇳 Marathi
+
+Includes:
+
+- Definitions
+- Example sentences
+- Cultural context
+- Mythological notes
+
+---
+
+## 🎨 Premium User Interface
+
+Inspired by Indian heritage.
+
+Features include:
+
+- Warm earthy color palette
+- Temple architecture
+- Lotus artwork
+- Peacock feather accents
+- Elegant serif typography
+- Responsive design
+- Smooth animations
+
+---
+
+# 🛠 Tech Stack
+
+Frontend
+
+- React
+- TypeScript
+- Tailwind CSS
+- Vite
+
+AI
+
+- Gemini API *(or update with your model)*
+
+Styling
+
+- CSS
+- Framer Motion
+
+Deployment
+
+- Vercel
+
+---
+
+# 📷 Screenshots
+
+## 🏠 Home
+
+![Home](./screenshots/home.png)
+
+---
+
+## 📖 Story Reader
+
+![Story](./screenshots/story.png)
+
+---
+
+## 📜 Sanskrit Verse & Teaching
+
+![Verse](./screenshots/verse.png)
+
+---
+
+## 📚 Dictionary
+
+![Dictionary](./screenshots/dictionary.png)
+
+---
+
+# 💡 Future Enhancements
+
+- 🎙 AI voice narration
+- 🌍 More Indian languages
+- 📖 Save favourite stories
+- 📥 Export stories as PDF
+- 🎧 Audio storytelling
+- 📱 Progressive Web App
+- 🌙 Light/Dark theme
+- 👥 Community story sharing
+- 🕉 Expanded scripture database
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome.
+
+If you'd like to improve Kathāsāgara, feel free to fork the repository and open a Pull Request.
+
+---
+
+# ⭐ Support
+
+If you enjoyed this project, consider giving it a ⭐ on GitHub.
+
+It motivates further development and helps others discover the project.
+
+---
+
+<div align="center">
+
+## 🕉
+
+*"Stories drawn from the eternal traditions of Bhārata."*
+
+**Kathāsāgara**
+
+*"The Ocean of Stories"*
+
+Made with ❤️ by **Your Name**
+
+</div>

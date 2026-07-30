@@ -26,8 +26,21 @@ export const Route = createFileRoute("/api/generate-image")({
         });
 
         if (!upstream.ok || !upstream.body) {
-          return new Response(await upstream.text(), { status: upstream.status });
+          const detail = await upstream.text().catch(() => "");
+          console.error("Image gateway error", upstream.status, detail);
+          if (upstream.status === 429) {
+            return new Response("Too many requests — please wait a moment and try again.", {
+              status: 429,
+            });
+          }
+          if (upstream.status === 402) {
+            return new Response("AI credits exhausted. Please add credits to your workspace.", {
+              status: 402,
+            });
+          }
+          return new Response("The painter is resting. Please try again shortly.", { status: 502 });
         }
+
 
         return new Response(upstream.body, {
           headers: { "Content-Type": "text/event-stream", "Cache-Control": "no-cache" },

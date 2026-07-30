@@ -1,13 +1,22 @@
+import { useEffect, useState, useCallback } from "react";
+import { streamImage } from "@/lib/streamImage";
+
+type Section = { heading: string; body: string; image_prompt?: string };
+
 type Story = {
   title: string;
   subtitle: string;
   source: string;
-  sections: { heading: string; body: string }[];
+  sections: Section[];
   moral: string;
   sanskrit_verse: { verse: string; translation: string };
 };
 
 export function StoryDisplay({ story }: { story: Story }) {
+  // Generate scene illustrations one at a time, in narrative order.
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [lightbox, setLightbox] = useState<{ src: string; caption: string } | null>(null);
+
   return (
     <article className="bg-parchment border-ornate rounded-lg p-8 md:p-14 animate-float-up">
       <div className="text-center mb-10">
@@ -33,6 +42,15 @@ export function StoryDisplay({ story }: { story: Story }) {
                 {p}
               </p>
             ))}
+            {s.image_prompt && (
+              <SceneImage
+                prompt={s.image_prompt}
+                caption={s.heading}
+                turn={i <= activeIndex}
+                onSettled={() => setActiveIndex((prev) => (prev === i ? i + 1 : prev))}
+                onOpen={(src) => setLightbox({ src, caption: s.heading })}
+              />
+            )}
           </section>
         ))}
       </div>
@@ -52,7 +70,129 @@ export function StoryDisplay({ story }: { story: Story }) {
         <p className="text-xs uppercase tracking-[0.3em] text-primary/70 mb-2">The Teaching</p>
         <p className="text-foreground/90 leading-relaxed font-serif text-lg">{story.moral}</p>
       </div>
+
+      {lightbox && (
+        <div
+          role="dialog"
+          aria-label={lightbox.caption}
+          onClick={() => setLightbox(null)}
+          className="fixed inset-0 z-50 bg-background/90 backdrop-blur-sm flex items-center justify-center p-6 cursor-zoom-out"
+        >
+          <figure className="max-w-3xl w-full">
+            <img
+              src={lightbox.src}
+              alt={lightbox.caption}
+              className="w-full rounded-lg border-ornate"
+            />
+            <figcaption className="mt-3 text-center font-serif italic text-muted-foreground">
+              {lightbox.caption} — tap anywhere to close
+            </figcaption>
+          </figure>
+        </div>
+      )}
     </article>
+  );
+}
+
+function SceneImage({
+  prompt,
+  caption,
+  turn,
+  onSettled,
+  onOpen,
+}: {
+  prompt: string;
+  caption: string;
+  turn: boolean;
+  onSettled: () => void;
+  onOpen: (src: string) => void;
+}) {
+  const [src, setSrc] = useState<string | null>(null);
+  const [isFinal, setIsFinal] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [nonce, setNonce] = useState(0);
+
+  const generate = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    setIsFinal(false);
+    try {
+      await streamImage("/api/generate-image", prompt, (dataUrl, final) => {
+        setSrc(dataUrl);
+        if (final) setIsFinal(true);
+      });
+    } catch (e) {
+      setError((e as Error).message);
+    } finally {
+      setLoading(false);
+      onSettled();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [prompt]);
+
+  useEffect(() => {
+    if (!turn) return;
+    void generate();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [turn, nonce]);
+
+  return (
+    <figure className="my-8">
+      <div className="relative overflow-hidden rounded-lg border-ornate bg-secondary/30 aspect-square max-w-lg mx-auto">
+        {src ? (
+          <button
+            type="button"
+            onClick={() => isFinal && onOpen(src)}
+            className="block w-full h-full cursor-zoom-in"
+            aria-label={`View illustration: ${caption}`}
+          >
+            <img
+              src={src}
+              alt={`Illustration of ${caption}`}
+              className={`w-full h-full object-cover transition-[filter] duration-700 ${
+                isFinal ? "blur-0" : "blur-2xl scale-105"
+              }`}
+            />
+          </button>
+        ) : (
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-center px-6">
+            {error ? (
+              <>
+                <p className="font-serif italic text-muted-foreground text-sm">{error}</p>
+                <button
+                  type="button"
+                  onClick={() => setNonce((n) => n + 1)}
+                  className="text-xs uppercase tracking-[0.2em] text-primary border border-primary/40 rounded-full px-4 py-2 hover:bg-primary/10 transition"
+                >
+                  Paint again
+                </button>
+              </>
+            ) : (
+              <>
+                <div className="w-10 h-10 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+                <p className="font-serif italic text-muted-foreground text-sm">
+                  {loading ? "The scene is being painted…" : "Awaiting the painter's brush…"}
+                </p>
+              </>
+            )}
+          </div>
+        )}
+      </div>
+
+      <figcaption className="mt-3 flex items-center justify-center gap-3 text-center">
+        <span className="font-serif italic text-sm text-muted-foreground">{caption}</span>
+        {isFinal && (
+          <button
+            type="button"
+            onClick={() => setNonce((n) => n + 1)}
+            className="text-[10px] uppercase tracking-[0.2em] text-primary/80 border border-primary/30 rounded-full px-3 py-1 hover:bg-primary/10 transition"
+          >
+            ✦ Repaint
+          </button>
+        )}
+      </figcaption>
+    </figure>
   );
 }
 

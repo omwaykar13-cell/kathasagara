@@ -35,13 +35,14 @@ Respond in JSON with this exact shape:
   "subtitle": "one-line essence",
   "source": "the text or tradition this comes from (e.g. 'Mahabharata, Vana Parva')",
   "sections": [
-    { "heading": "section heading", "body": "2-4 paragraphs of rich narrative" }
+    { "heading": "section heading", "body": "2-4 paragraphs of rich narrative", "image_prompt": "a vivid one-sentence visual description of the single most striking moment in this section — name the figures, setting, objects, action and mood, no text or lettering in the image" }
   ],
   "moral": "the deeper teaching, in 2-3 sentences",
   "sanskrit_verse": { "verse": "a short relevant shloka in Devanagari (optional, empty string if none fits)", "translation": "english translation" }
 }
 
-Aim for 4-6 sections. Be authentic to the source tradition — do not invent characters or events. Only return valid JSON, no markdown fences.`;
+Aim for 4-6 sections. Every section MUST include an image_prompt. Be authentic to the source tradition — do not invent characters or events. Only return valid JSON, no markdown fences.`;
+
 
     const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
       method: "POST",
@@ -83,7 +84,7 @@ Aim for 4-6 sections. Be authentic to the source tradition — do not invent cha
       title: string;
       subtitle: string;
       source: string;
-      sections: { heading: string; body: string }[];
+      sections: { heading: string; body: string; image_prompt?: string }[];
       moral: string;
       sanskrit_verse: { verse: string; translation: string };
     };
